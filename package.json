@@ -1,14 +1,17 @@
 {
   "name": "zetapush-angular",
-  "version": "1.0.0",
-  "description": "Library QuickStart package.json from the documentation, supplemented with testing support",
+  "version": "0.0.1-alpha.2",
+  "description": "ZetaPush Binding for Angular",
   "main": "./zetapush-angular.umd.js",
   "module": "./zetapush-angular.es5.js",
   "es2015": "./zetapush-angular.js",
   "typings": "./zetapush-angular.d.ts",
-  "author": "",
+  "author": "Grégory Houllier <gregory.houllier@zetapush.com>",
   "license": "MIT",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zetapush/zetapush-angular.git"
+  },
   "engines": {
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
@@ -36,7 +39,7 @@
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.0 <5.0.0 || >=4.0.0-beta <5.0.0",
-    "zetapush-js": "~3.1.0"
+    "zetapush-js": ">=3.1.2"
   },
   "devDependencies": {
     "@angular/common": "~4.0.0",
@@ -67,6 +70,7 @@
     "systemjs": "^0.19.40",
     "tslint": "^4.4.2",
     "typescript": "^2.2.1",
+    "zetapush-js": "~3.1.0",
     "zone.js": "^0.8.4"
   }
 }
