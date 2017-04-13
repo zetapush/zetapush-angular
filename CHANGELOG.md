@@ -1,3 +1,9 @@
+# 0.0.1-alpha.3
+
+> /!\ Experimental! Provide an PoC for angular integration
+
+- Fix bad publication process
+
 # 0.0.1-alpha.2
 
 > /!\ Experimental! Provide an PoC for angular integration
