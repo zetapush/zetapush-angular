@@ -1,6 +1,6 @@
 import { NgZone } from '@angular/core';
 
-import { AsyncMacroService, services } from 'zetapush-js';
+import { services } from 'zetapush-js';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/publish';
@@ -62,5 +62,5 @@ export function createApi(client: ZetaPushClient, zone: NgZone, Api: any) {
   });
   return Object.assign(api, extensions, {
     $getUserId: () => client.getUserId()
-  }) as AsyncMacroService;
+  }) as Api;
 }

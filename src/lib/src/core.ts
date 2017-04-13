@@ -1,9 +1,9 @@
-import { Authentication, SmartClient, SmartClientOptions } from 'zetapush-js';
+import { Authentication, SmartClient, ClientOptions } from 'zetapush-js';
 
 const ZETAPUSH_DELEGATING_TOKEN_KEY = 'ServicesAuthToken';
 
 export class ZetaPushClient extends SmartClient {
-  constructor(options: SmartClientOptions) {
+  constructor(options: ClientOptions) {
     super(options);
 
     const { authentication } = this.helper;
@@ -42,9 +42,7 @@ export class ZetaPushConnection {
           // Resolve disconnection
           resolve();
         };
-        handlers.push(client.addConnectionStatusListener({
-          onConnectionClosed
-        }));
+        handlers.push(client.onConnectionClosed(onConnectionClosed));
         // Disconnect client
         client.disconnect();
       } else {
@@ -81,9 +79,8 @@ export class ZetaPushConnection {
           resolve();
         };
         // Handle connection success and fail
-        handlers.push(client.addConnectionStatusListener({
-          onConnectionEstablished, onFailedHandshake
-        }));
+        handlers.push(client.onConnectionEstablished(onConnectionEstablished));
+        handlers.push(client.onFailedHandshake(onFailedHandshake));
         // Connect client to ZetaPush backend
         client.connect();
       });
