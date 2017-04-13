@@ -25,6 +25,7 @@
 
       // other libraries
       'rxjs': 'npm:rxjs',
+      'zetapush-js': 'npm:zetapush-js/dist/zetapush.min.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -32,6 +33,9 @@
         defaultExtension: 'js'
       },
       rxjs: {
+        defaultExtension: 'js'
+      },
+      'zetapush-js': {
         defaultExtension: 'js'
       },
       'zetapush-angular': {
