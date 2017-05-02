@@ -1,5 +1,11 @@
 # 0.1.0
 
+## Fix
+
+-  Update public release
+
+# 0.1.0
+
 > First public release
 
 # 0.0.1-alpha.3
