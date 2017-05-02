@@ -1,3 +1,5 @@
+[![NPM version][npm-version-image]][npm-url]
+
 # zetapush-angular
 
 Angular ZetaPush integration made easy
@@ -109,3 +111,6 @@ export class MyComponent implements OnInit{
   }
 }
 ```
+
+[npm-version-image]: http://img.shields.io/npm/v/zetapush-angular.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/zetapush-angular
