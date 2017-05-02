@@ -1,3 +1,7 @@
+# 0.1.0
+
+> First public release
+
 # 0.0.1-alpha.3
 
 > /!\ Experimental! Provide an PoC for angular integration
