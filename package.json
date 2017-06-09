@@ -35,7 +35,9 @@
     "integration": "npm run integration:aot && npm run integration:jit",
     "integration:jit": "cd integration && npm run e2e",
     "integration:aot": "cd integration && npm run e2e:aot",
-    "lint": "tslint ./src/**/*.ts -t verbose"
+    "lint": "tslint ./src/**/*.ts -t verbose",
+    "precommit": "lint-staged",
+    "prettify": "prettier --no-semi --single-quote --trailing-comma all --write 'src/lib/**/*.ts'"
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.0 <5.0.0 || >=4.0.0-beta <5.0.0",
@@ -54,6 +56,7 @@
     "concurrently": "3.2.0",
     "core-js": "^2.4.1",
     "glob": "^7.1.1",
+    "husky": "^0.13.4",
     "jasmine-core": "^2.5.2",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -61,7 +64,9 @@
     "karma-html-reporter": "^0.2.7",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "lint-staged": "^3.6.0",
     "lite-server": "^2.2.2",
+    "prettier": "^1.4.2",
     "rimraf": "^2.6.1",
     "rollup": "^0.41.5",
     "rollup-plugin-sourcemaps": "^0.4.1",
@@ -72,5 +77,11 @@
     "typescript": "^2.2.1",
     "zetapush-js": "~3.1.0",
     "zone.js": "^0.8.4"
+  },
+  "lint-staged": {
+    "src/lib/**/*.ts": [
+      "prettier --no-semi --single-quote --trailing-comma all --write",
+      "git add"
+    ]
   }
 }
