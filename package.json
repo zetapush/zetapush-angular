@@ -35,7 +35,7 @@
     "integration": "npm run integration:aot && npm run integration:jit",
     "integration:jit": "cd integration && npm run e2e",
     "integration:aot": "cd integration && npm run e2e:aot",
-    "lint": "tslint ./src/**/*.ts -t verbose",
+    "lint": "tslint --project tsconfig.json ./src/**/*.ts -t verbose",
     "precommit": "lint-staged",
     "prettify": "prettier --no-semi --single-quote --trailing-comma all --write 'src/lib/**/*.ts'"
   },
