@@ -46,22 +46,30 @@ export interface ApiError {
   message: string
 }
 
+export interface ApiParameters {
+  [property: string]: any
+}
+
 export class Api extends services.Macro {
   $getUserId(): string {
     return '<abstract>'
   }
 }
 
-export function createApi(client: ZetaPushClient, zone: NgZone, Api: any) {
-  const { extensions, listener } = getExtensionsAndListener(Api, zone)
+export function createApi<T extends Api>(
+  client: ZetaPushClient,
+  zone: NgZone,
+  Type: any,
+) {
+  const { extensions, listener } = getExtensionsAndListener(Type, zone)
   const api = client.createAsyncMacroService({
-    Type: Api,
+    Type,
     listener,
   })
   const $publish = api.$publish
   api.$publish = (
     method: string,
-    parameters: any,
+    parameters: ApiParameters = {},
     hardFail?: boolean,
     debug?: number,
   ) =>
@@ -73,5 +81,5 @@ export function createApi(client: ZetaPushClient, zone: NgZone, Api: any) {
     })
   return Object.assign(api, extensions, {
     $getUserId: () => client.getUserId(),
-  }) as Api
+  }) as T
 }

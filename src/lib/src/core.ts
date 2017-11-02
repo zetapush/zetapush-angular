@@ -2,24 +2,7 @@ import { Authentication, SmartClient, ClientOptions } from 'zetapush-js'
 
 const ZETAPUSH_DELEGATING_TOKEN_KEY = 'ServicesAuthToken'
 
-export class ZetaPushClient extends SmartClient {
-  constructor(options: ClientOptions) {
-    super(options)
-
-    const { authentication } = this.helper
-    this.helper.authentication = () => {
-      const token = this.getDelegateToken()
-      if (token) {
-        return Authentication.delegating({ token })
-      } else {
-        return authentication()
-      }
-    }
-  }
-  getDelegateToken() {
-    return localStorage.getItem(ZETAPUSH_DELEGATING_TOKEN_KEY)
-  }
-}
+export class ZetaPushClient extends SmartClient {}
 
 export class ZetaPushConnection {
   constructor(private client: ZetaPushClient) {}

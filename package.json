@@ -40,7 +40,7 @@
     "prettify": "prettier --no-semi --single-quote --trailing-comma all --write 'src/lib/**/*.ts'"
   },
   "peerDependencies": {
-    "@angular/core": ">=4.0.0 <6.0.0 || >=4.0.0-beta <6.0.0",
+    "@angular/core": ">=4 <6",
     "zetapush-js": ">=3"
   },
   "devDependencies": {
