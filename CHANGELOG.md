@@ -1,8 +1,14 @@
+# 0.2.1
+
+## Fix
+
+- Fix bad publication issue
+
 # 0.2.0
 
 ## Fix
 
--  Update public Api (#4) (4578499e6232187ce5a958ab7097d676395033e1)
+- Update public Api (#4) (4578499e6232187ce5a958ab7097d676395033e1)
 
 # 0.1.0
 

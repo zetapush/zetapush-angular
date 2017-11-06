@@ -1,6 +1,6 @@
 {
   "name": "zetapush-angular",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ZetaPush Binding for Angular",
   "main": "./zetapush-angular.umd.js",
   "module": "./zetapush-angular.es5.js",
@@ -75,7 +75,7 @@
     "systemjs": "^0.20.19",
     "tslint": "^5.8.0",
     "typescript": "^2.5.3",
-    "zetapush-js": "^3.2.0",
+    "zetapush-js": "^3.3.0",
     "zone.js": "^0.8.18"
   },
   "lint-staged": {

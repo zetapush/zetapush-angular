@@ -3192,9 +3192,9 @@ zetapush-cometd@3.2.0:
     node-fetch "^1.7.0"
     websocket "^1.0.24"
 
-zetapush-js@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/zetapush-js/-/zetapush-js-3.2.0.tgz#486520d8bdeaee02fef68e30ce193a0c53fafdb4"
+zetapush-js@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/zetapush-js/-/zetapush-js-3.3.0.tgz#74b4f547ad17b9fa83ff9cdb458ee99b6fd76b24"
   dependencies:
     zetapush-cometd "3.2.0"
 
