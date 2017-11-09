@@ -1,6 +1,6 @@
 {
   "name": "zetapush-angular",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "ZetaPush Binding for Angular",
   "main": "./zetapush-angular.umd.js",
   "module": "./zetapush-angular.es5.js",

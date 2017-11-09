@@ -1,3 +1,9 @@
+# 0.3.0
+
+## Features
+
+- Add Observer Abstract component to easily handle zetapush subsciptions
+
 # 0.2.1
 
 ## Fix
