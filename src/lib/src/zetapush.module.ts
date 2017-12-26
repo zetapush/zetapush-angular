@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
 
-import { ZetaPushClient, ZetaPushConnection } from './core'
+import { ZetaPushClient, ZetaPushConnection } from './core';
 import {
   ZetaPushClientConfig,
   ZetaPushClientFactory,
   ZetaPushConnectionFactory,
-} from './di'
+} from './di';
 
 @NgModule({
   declarations: [],

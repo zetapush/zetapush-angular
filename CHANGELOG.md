@@ -1,3 +1,9 @@
+# 0.4.0
+
+## Features
+
+- Implements a default error catching on Api error
+
 # 0.3.0
 
 ## Features

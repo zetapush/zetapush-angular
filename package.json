@@ -1,6 +1,6 @@
 {
   "name": "zetapush-angular",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "ZetaPush Binding for Angular",
   "main": "./zetapush-angular.umd.js",
   "module": "./zetapush-angular.es5.js",
@@ -28,16 +28,19 @@
     "build-test": "tsc -p src/lib/tsconfig.spec.json",
     "build-test:watch": "tsc -p src/lib/tsconfig.spec.json -w",
     "pretest": "npm run build-test",
-    "test": "concurrently \"npm run build-test:watch\" \"karma start karma.conf.js\"",
+    "test":
+      "concurrently \"npm run build-test:watch\" \"karma start karma.conf.js\"",
     "pretest:once": "npm run build-test",
     "test:once": "karma start karma.conf.js --single-run",
-    "preintegration": "npm run build && cd integration && npm run clean && npm install",
+    "preintegration":
+      "npm run build && cd integration && npm run clean && npm install",
     "integration": "npm run integration:aot && npm run integration:jit",
     "integration:jit": "cd integration && npm run e2e",
     "integration:aot": "cd integration && npm run e2e:aot",
     "lint": "tslint --project tsconfig.json ./src/**/*.ts -t verbose",
     "precommit": "lint-staged",
-    "prettify": "prettier --no-semi --single-quote --trailing-comma all --write 'src/lib/**/*.ts'"
+    "prettify":
+      "prettier --single-quote --trailing-comma all --arrow-parens always --write 'src/lib/**/*.ts'"
   },
   "peerDependencies": {
     "@angular/core": ">=4 <6",
@@ -50,37 +53,37 @@
     "@angular/core": ">=4",
     "@angular/platform-browser": ">=4",
     "@angular/platform-browser-dynamic": ">=4",
-    "@types/jasmine": "^2.6.2",
-    "@types/node": "^8.0.47",
+    "@types/jasmine": "^2.8.2",
+    "@types/node": "^8.5.2",
     "camelcase": "^4.1.0",
-    "concurrently": "^3.5.0",
-    "core-js": "^2.5.1",
+    "concurrently": "^3.5.1",
+    "core-js": "^2.5.3",
     "glob": "^7.1.2",
     "husky": "^0.14.3",
     "jasmine-core": "^2.8.0",
-    "karma": "^1.7.1",
+    "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "^1.0.1",
     "karma-html-reporter": "^0.2.7",
-    "karma-jasmine": "^1.1.0",
+    "karma-jasmine": "^1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "lint-staged": "^4.3.0",
+    "lint-staged": "^6.0.0",
     "lite-server": "^2.3.0",
-    "prettier": "^1.7.4",
+    "prettier": "^1.9.2",
     "rimraf": "^2.6.2",
-    "rollup": "^0.50.0",
+    "rollup": "^0.53.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-uglify": "^2.0.1",
-    "rxjs": "^5.5.2",
+    "rxjs": "^5.5.6",
     "systemjs": "^0.20.19",
     "tslint": "^5.8.0",
-    "typescript": "^2.5.3",
+    "typescript": "^2.6.2",
     "zetapush-js": "^3.3.0",
     "zone.js": "^0.8.18"
   },
   "lint-staged": {
     "src/lib/**/*.ts": [
-      "prettier --no-semi --single-quote --trailing-comma all --write",
+      "prettier --single-quote --trailing-comma all --arrow-parens always --write",
       "git add"
     ]
   }

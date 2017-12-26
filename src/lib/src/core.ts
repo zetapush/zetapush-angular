@@ -1,6 +1,6 @@
-import { Authentication, SmartClient, ClientOptions } from 'zetapush-js'
+import { Authentication, SmartClient, ClientOptions } from 'zetapush-js';
 
-const ZETAPUSH_DELEGATING_TOKEN_KEY = 'ServicesAuthToken'
+const ZETAPUSH_DELEGATING_TOKEN_KEY = 'ServicesAuthToken';
 
 export class ZetaPushClient extends SmartClient {}
 
@@ -8,65 +8,65 @@ export class ZetaPushConnection {
   constructor(private client: ZetaPushClient) {}
 
   get connected() {
-    return this.client.isConnected()
+    return this.client.isConnected();
   }
 
   disconnect(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      const { client } = this
-      const handlers: Array<any> = []
+      const { client } = this;
+      const handlers: Array<any> = [];
       if (client.isConnected()) {
         const onConnectionClosed = () => {
-          console.log('ZetaPushConnection::onConnectionClosed')
+          console.log('ZetaPushConnection::onConnectionClosed');
           // Remove connection status listener
-          handlers.forEach(handler => {
-            client.removeConnectionStatusListener(handler)
-          })
+          handlers.forEach((handler) => {
+            client.removeConnectionStatusListener(handler);
+          });
           // Resolve disconnection
-          resolve()
-        }
-        handlers.push(client.onConnectionClosed(onConnectionClosed))
+          resolve();
+        };
+        handlers.push(client.onConnectionClosed(onConnectionClosed));
         // Disconnect client
-        client.disconnect()
+        client.disconnect();
       } else {
         // Resolve disconnection
-        resolve()
+        resolve();
       }
-    })
+    });
   }
 
   connect(credentials: any = {}): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      const { client } = this
-      const handlers: Array<any> = []
-      client.setCredentials(credentials)
+      const { client } = this;
+      const handlers: Array<any> = [];
+      client.setCredentials(credentials);
       this.disconnect().then(() => {
         const onFailedHandshake = (error: any) => {
-          console.log('ZetaPushConnection::onFailedHandshake', error)
+          console.log('ZetaPushConnection::onFailedHandshake', error);
           // Remove connection status listener
-          handlers.forEach(handler => {
-            client.removeConnectionStatusListener(handler)
-          })
+          handlers.forEach((handler) => {
+            client.removeConnectionStatusListener(handler);
+          });
           // Reconnect client via weak auth
-          client.connect()
+          client.connect();
           // Reject connection
-          reject()
-        }
+          reject();
+        };
         const onConnectionEstablished = () => {
-          console.log('ZetaPushConnection::onConnectionEstablished')
+          console.log('ZetaPushConnection::onConnectionEstablished');
           // Remove connection status listener
-          handlers.forEach(handler => {
-            client.removeConnectionStatusListener(handler)
-          })
+          handlers.forEach((handler) => {
+            client.removeConnectionStatusListener(handler);
+          });
           // Resolve connection success
-          resolve()
-        }
+          resolve();
+        };
         // Handle connection success and fail
-        handlers.push(client.onConnectionEstablished(onConnectionEstablished))
-        handlers.push(client.onFailedHandshake(onFailedHandshake))
+        handlers.push(client.onConnectionEstablished(onConnectionEstablished));
+        handlers.push(client.onFailedHandshake(onFailedHandshake));
         // Connect client to ZetaPush backend
-        client.connect()
-      })
-    })
+        client.connect();
+      });
+    });
   }
 }

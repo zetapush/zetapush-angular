@@ -1,16 +1,16 @@
-import { OnDestroy } from '@angular/core'
+import { OnDestroy } from '@angular/core';
 
-import { Subscription } from 'rxjs/Subscription'
+import { Subscription } from 'rxjs/Subscription';
 
 export class Observer implements OnDestroy {
-  protected subscriptions: Subscription[] = []
+  protected subscriptions: Subscription[] = [];
 
   observe(subscription: Subscription) {
-    this.subscriptions.push(subscription)
-    return subscription
+    this.subscriptions.push(subscription);
+    return subscription;
   }
 
   ngOnDestroy() {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe())
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 }
