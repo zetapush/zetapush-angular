@@ -77,11 +77,9 @@ export function createApi<T extends Api>(
       console.warn(`Api::${method}`, parameters);
       const onSuccess = (message: any) => zone.run(() => resolve(message));
       const onError = (errors: any) => zone.run(() => reject(errors));
-      $publish(method, parameters, hardFail, debug)
-        .then(onSuccess, onError)
-        .catch((error) => {
-          console.error(`Api::${method}`, error);
-        });
+      $publish(method, parameters, hardFail, debug).then(onSuccess, onError);
+    }).catch((error) => {
+      console.error(`Api::${method}`, error);
     });
   return Object.assign(api, extensions, {
     $getUserId: () => client.getUserId(),

@@ -1,3 +1,9 @@
+# 0.4.1
+
+## Fix
+
+- Update default error strategy
+
 # 0.4.0
 
 ## Features
