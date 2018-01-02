@@ -3,4 +3,4 @@ export { Observer } from './src/observer';
 export { ZetaPushConnection, ZetaPushClient } from './src/core';
 export { ZetaPushClientConfig } from './src/di';
 export { ZetaPushModule } from './src/zetapush.module';
-export const VERSION = '0.4.1';
+export const VERSION = '0.5.1';

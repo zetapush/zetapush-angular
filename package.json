@@ -1,6 +1,6 @@
 {
   "name": "zetapush-angular",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "description": "ZetaPush Binding for Angular",
   "main": "./zetapush-angular.umd.js",
   "module": "./zetapush-angular.es5.js",
@@ -28,19 +28,16 @@
     "build-test": "tsc -p src/lib/tsconfig.spec.json",
     "build-test:watch": "tsc -p src/lib/tsconfig.spec.json -w",
     "pretest": "npm run build-test",
-    "test":
-      "concurrently \"npm run build-test:watch\" \"karma start karma.conf.js\"",
+    "test": "concurrently \"npm run build-test:watch\" \"karma start karma.conf.js\"",
     "pretest:once": "npm run build-test",
     "test:once": "karma start karma.conf.js --single-run",
-    "preintegration":
-      "npm run build && cd integration && npm run clean && npm install",
+    "preintegration": "npm run build && cd integration && npm run clean && npm install",
     "integration": "npm run integration:aot && npm run integration:jit",
     "integration:jit": "cd integration && npm run e2e",
     "integration:aot": "cd integration && npm run e2e:aot",
     "lint": "tslint --project tsconfig.json ./src/**/*.ts -t verbose",
     "precommit": "lint-staged",
-    "prettify":
-      "prettier --single-quote --trailing-comma all --arrow-parens always --write 'src/lib/**/*.ts'"
+    "prettify": "prettier --single-quote --trailing-comma all --arrow-parens always --write 'src/lib/**/*.ts'"
   },
   "peerDependencies": {
     "@angular/core": ">=4 <6",

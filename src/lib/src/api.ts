@@ -40,6 +40,11 @@ const getExtensionsAndListener = (Class: any, zone: NgZone) => {
   return { extensions, listener };
 };
 
+const onErrorDefaultHandler = (errors: ApiError[], method: string) => {
+  console.error(`Api::${method}`, errors);
+  return errors;
+};
+
 export interface ApiError {
   code: string;
   location: string;
@@ -60,6 +65,10 @@ export function createApi<T extends Api>(
   client: ZetaPushClient,
   zone: NgZone,
   Type: any,
+  onErrorHandler: (
+    errors: ApiError[],
+    method: string,
+  ) => ApiError[] = onErrorDefaultHandler,
 ) {
   const { extensions, listener } = getExtensionsAndListener(Type, zone);
   const api = client.createAsyncMacroService({
@@ -72,15 +81,18 @@ export function createApi<T extends Api>(
     parameters: ApiParameters = {},
     hardFail?: boolean,
     debug?: number,
-  ) =>
-    new Promise<any>((resolve, reject) => {
+  ) => {
+    const promise = new Promise<any>((resolve, reject) => {
       console.warn(`Api::${method}`, parameters);
       const onSuccess = (message: any) => zone.run(() => resolve(message));
       const onError = (errors: any) => zone.run(() => reject(errors));
       $publish(method, parameters, hardFail, debug).then(onSuccess, onError);
-    }).catch((error) => {
-      console.error(`Api::${method}`, error);
     });
+    promise.catch((errors: ApiError[]) =>
+      onErrorDefaultHandler(errors, method),
+    );
+    return promise;
+  };
   return Object.assign(api, extensions, {
     $getUserId: () => client.getUserId(),
   }) as T;
