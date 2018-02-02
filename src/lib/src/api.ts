@@ -21,7 +21,7 @@ const getExtensionsAndListener = (Class: any, zone: NgZone) => {
       }: {
         data: { errors: Array<any>; result: any };
       }) => {
-        console.log(`Api::on${toPascalCase(method)}`, data);
+        console.trace(`Api::on${toPascalCase(method)}`, data);
         zone.run(() => {
           const { errors, result } = data;
           if (errors.length) {
@@ -83,7 +83,7 @@ export function createApi<T extends Api>(
     debug?: number,
   ) => {
     const promise = new Promise<any>((resolve, reject) => {
-      console.warn(`Api::${method}`, parameters);
+      console.trace(`Api::${method}`, parameters);
       const onSuccess = (message: any) => zone.run(() => resolve(message));
       const onError = (errors: any) => zone.run(() => reject(errors));
       $publish(method, parameters, hardFail, debug).then(onSuccess, onError);

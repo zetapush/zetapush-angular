@@ -1,5 +1,11 @@
 # 0.5.1
 
+## Fix
+
+* Change default log level for trace output
+
+# 0.5.1
+
 > Republish previously published version
 
 # 0.5.0
