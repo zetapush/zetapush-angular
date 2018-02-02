@@ -17,7 +17,7 @@ export class ZetaPushConnection {
       const handlers: Array<any> = [];
       if (client.isConnected()) {
         const onConnectionClosed = () => {
-          console.log('ZetaPushConnection::onConnectionClosed');
+          console.trace('ZetaPushConnection::onConnectionClosed');
           // Remove connection status listener
           handlers.forEach((handler) => {
             client.removeConnectionStatusListener(handler);
@@ -42,7 +42,7 @@ export class ZetaPushConnection {
       client.setCredentials(credentials);
       this.disconnect().then(() => {
         const onFailedHandshake = (error: any) => {
-          console.log('ZetaPushConnection::onFailedHandshake', error);
+          console.trace('ZetaPushConnection::onFailedHandshake', error);
           // Remove connection status listener
           handlers.forEach((handler) => {
             client.removeConnectionStatusListener(handler);
@@ -53,7 +53,7 @@ export class ZetaPushConnection {
           reject();
         };
         const onConnectionEstablished = () => {
-          console.log('ZetaPushConnection::onConnectionEstablished');
+          console.trace('ZetaPushConnection::onConnectionEstablished');
           // Remove connection status listener
           handlers.forEach((handler) => {
             client.removeConnectionStatusListener(handler);
